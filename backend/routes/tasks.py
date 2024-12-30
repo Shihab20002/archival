@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from models.task import Task
 from models.user import User
+from utils import has_permission
 from datetime import datetime
 import json
 
@@ -96,6 +97,8 @@ def get_department_tasks(department):
     current_user_id = get_jwt_identity()
     user_model = User(tasks_bp.db)
     current_user = user_model.get_user_by_id(current_user_id)
+    print(f"Current User Roles: {current_user.get('roles')}, Permissions: {current_user.get('permissions')}")
+
     
     if not (has_permission(current_user, 'view_all_tasks') or
             current_user['department'] == department):
@@ -103,7 +106,7 @@ def get_department_tasks(department):
     
     status = request.args.get('status')
     task_model = Task(tasks_bp.db)
-    tasks = task_model.get_department_tasks(department, status)
+    tasks = task_model.get_department_tasks(department, status, current_user)
     
     return jsonify(tasks), 200
 
