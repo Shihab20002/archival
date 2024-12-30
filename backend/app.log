@@ -1,0 +1,67 @@
+2024-12-30 23:24:31,949 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.107:5000
+2024-12-30 23:24:31,949 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-30 23:24:31,950 - INFO -  * Restarting with stat
+2024-12-30 23:24:32,141 - WARNING -  * Debugger is active!
+2024-12-30 23:24:32,144 - INFO -  * Debugger PIN: 125-485-595
+2024-12-30 23:24:41,326 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:41] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2024-12-30 23:24:41,565 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:41] "POST /api/auth/login HTTP/1.1" 200 -
+2024-12-30 23:24:41,617 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:41] "OPTIONS /api/tasks HTTP/1.1" 200 -
+2024-12-30 23:24:41,619 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:41] "[31m[1mGET /api/tasks HTTP/1.1[0m" 405 -
+2024-12-30 23:24:41,623 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:41] "[31m[1mGET /api/tasks HTTP/1.1[0m" 405 -
+2024-12-30 23:24:43,673 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:43] "OPTIONS /api/tasks/department/CSE HTTP/1.1" 200 -
+2024-12-30 23:24:43,674 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:43] "OPTIONS /api/tasks/department/CSE HTTP/1.1" 200 -
+2024-12-30 23:24:43,686 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:43] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:24:43,693 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:43] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:24:46,187 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:46] "OPTIONS /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:24:46,190 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:46] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:24:46,194 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:46] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:24:46,313 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:46] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:24:46,320 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:46] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:24:47,507 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:47] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:24:47,512 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:47] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:24:47,621 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:47] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:24:47,627 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:47] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:24:49,088 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:49] "OPTIONS /api/reports HTTP/1.1" 200 -
+2024-12-30 23:24:49,090 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:49] "OPTIONS /api/reports HTTP/1.1" 200 -
+2024-12-30 23:24:49,094 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:49] "GET /api/reports HTTP/1.1" 200 -
+2024-12-30 23:24:49,100 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:49] "GET /api/reports HTTP/1.1" 200 -
+2024-12-30 23:24:50,230 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:50] "OPTIONS /api/tasks HTTP/1.1" 200 -
+2024-12-30 23:24:50,231 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:50] "OPTIONS /api/tasks HTTP/1.1" 200 -
+2024-12-30 23:24:50,235 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:50] "[31m[1mGET /api/tasks HTTP/1.1[0m" 405 -
+2024-12-30 23:24:50,238 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:50] "[31m[1mGET /api/tasks HTTP/1.1[0m" 405 -
+2024-12-30 23:24:51,910 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:51] "OPTIONS /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:24:51,913 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:51] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:24:51,918 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:51] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:24:52,021 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:52] "[31m[1mGET /api/tasks HTTP/1.1[0m" 405 -
+2024-12-30 23:24:52,024 - INFO - 127.0.0.1 - - [30/Dec/2024 23:24:52] "[31m[1mGET /api/tasks HTTP/1.1[0m" 405 -
+2024-12-30 23:26:37,638 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.107:5000
+2024-12-30 23:26:37,638 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-30 23:26:37,639 - INFO -  * Restarting with stat
+2024-12-30 23:26:37,819 - WARNING -  * Debugger is active!
+2024-12-30 23:26:37,821 - INFO -  * Debugger PIN: 125-485-595
+2024-12-30 23:26:46,476 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:46] "OPTIONS /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:26:46,484 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:46] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:26:46,493 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:46] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:26:46,808 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:46] "OPTIONS /api/tasks HTTP/1.1" 200 -
+2024-12-30 23:26:46,811 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:46] "OPTIONS /api/tasks HTTP/1.1" 200 -
+2024-12-30 23:26:46,812 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:46] "[31m[1mGET /api/tasks HTTP/1.1[0m" 405 -
+2024-12-30 23:26:46,817 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:46] "[31m[1mGET /api/tasks HTTP/1.1[0m" 405 -
+2024-12-30 23:26:49,331 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:49] "OPTIONS /api/tasks/department/CSE HTTP/1.1" 200 -
+2024-12-30 23:26:49,334 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:49] "OPTIONS /api/tasks/department/CSE HTTP/1.1" 200 -
+2024-12-30 23:26:49,343 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:49] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:26:49,351 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:49] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:26:50,987 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:50] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:26:50,999 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:50] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:26:51,101 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:51] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:26:51,107 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:51] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:26:51,779 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:51] "OPTIONS /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:26:51,782 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:51] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:26:51,786 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:51] "GET /api/auth/me HTTP/1.1" 200 -
+2024-12-30 23:26:51,881 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:51] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
+2024-12-30 23:26:51,886 - INFO - 127.0.0.1 - - [30/Dec/2024 23:26:51] "[35m[1mGET /api/tasks/department/CSE HTTP/1.1[0m" 500 -
