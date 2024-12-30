@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadUser } from './store/slices/authSlice';
 import axios from 'axios';
@@ -31,68 +33,70 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Routes>
-        <Route path="/login" element={
-          !isAuthenticated ? <Login /> : <Navigate to="/dashboard" />
-        } />
-        <Route path="/register" element={
-          !isAuthenticated ? <Register /> : <Navigate to="/dashboard" />
-        } />
-        
-        <Route element={<Layout />}>
-          <Route path="/" element={<Navigate to="/dashboard" />} />
-          
-          <Route path="/dashboard" element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <Routes>
+          <Route path="/login" element={
+            !isAuthenticated ? <Login /> : <Navigate to="/dashboard" />
+          } />
+          <Route path="/register" element={
+            !isAuthenticated ? <Register /> : <Navigate to="/dashboard" />
           } />
           
-          <Route path="/tasks" element={
-            <PrivateRoute>
-              <Tasks />
-            </PrivateRoute>
-          } />
-          
-          <Route path="/tasks/create" element={
-            <PrivateRoute>
-              <CreateTask />
-            </PrivateRoute>
-          } />
-          
-          <Route path="/tasks/:taskId" element={
-            <PrivateRoute>
-              <TaskDetails />
-            </PrivateRoute>
-          } />
-          
-          <Route path="/reports" element={
-            <PrivateRoute>
-              <Reports />
-            </PrivateRoute>
-          } />
-          
-          <Route path="/users" element={
-            <PrivateRoute>
-              <UserManagement />
-            </PrivateRoute>
-          } />
-          
-          <Route path="/profile" element={
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          } />
-          
-          <Route path="/query" element={
-            <PrivateRoute>
-              <QueryManagement />
-            </PrivateRoute>
-          } />
-        </Route>
-      </Routes>
-    </Box>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Navigate to="/dashboard" />} />
+            
+            <Route path="/dashboard" element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            } />
+            
+            <Route path="/tasks" element={
+              <PrivateRoute>
+                <Tasks />
+              </PrivateRoute>
+            } />
+            
+            <Route path="/tasks/create" element={
+              <PrivateRoute>
+                <CreateTask />
+              </PrivateRoute>
+            } />
+            
+            <Route path="/tasks/:taskId" element={
+              <PrivateRoute>
+                <TaskDetails />
+              </PrivateRoute>
+            } />
+            
+            <Route path="/reports" element={
+              <PrivateRoute>
+                <Reports />
+              </PrivateRoute>
+            } />
+            
+            <Route path="/users" element={
+              <PrivateRoute>
+                <UserManagement />
+              </PrivateRoute>
+            } />
+            
+            <Route path="/profile" element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            } />
+            
+            <Route path="/query" element={
+              <PrivateRoute>
+                <QueryManagement />
+              </PrivateRoute>
+            } />
+          </Route>
+        </Routes>
+      </Box>
+    </LocalizationProvider>
   );
 }
 
