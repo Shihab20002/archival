@@ -95,13 +95,15 @@ class Task:
         
         return self.get_task_by_id(task_id) if result.modified_count > 0 else None
 
-    def get_department_tasks(self, department, status=None, user=None):
+    def get_department_tasks(self, department, status=None, user=None, exclude_archived=False):
         if user and has_permission(user, 'view_all_tasks'):
             query = {}
         else:
             query = {'department': department}
         if status:
             query['status'] = status
+        if exclude_archived:
+            query['status'] = {'$ne': self.STATUS['ARCHIVED']}
         
         tasks = list(self.collection.find(query).sort('created_at', -1))
         for task in tasks:
@@ -166,10 +168,12 @@ class Task:
             'status': self.STATUS['ARCHIVED']
         }, user_id)
 
-    def get_tasks_by_status(self, status, department=None):
+    def get_tasks_by_status(self, status, department=None, exclude_archived=False):
         query = {'status': status}
         if department:
             query['department'] = department
+        if exclude_archived and status != self.STATUS['ARCHIVED']:
+            query['status'] = {'$ne': self.STATUS['ARCHIVED']}
             
         tasks = list(self.collection.find(query).sort('created_at', -1))
         for task in tasks:
