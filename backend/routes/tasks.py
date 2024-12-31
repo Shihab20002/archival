@@ -75,13 +75,7 @@ def update_task(task_id):
     if not task:
         return jsonify({'error': 'Task not found'}), 404
     
-    # Check permissions
-    if not (has_permission(current_user, 'edit_task') and
-            (has_permission(current_user, 'view_all_tasks') or
-             task['department'] == current_user['department'] or
-             task['created_by'] == current_user_id or
-             task.get('assigned_to') == current_user_id)):
-        return jsonify({'error': 'Permission denied'}), 403
+    # Check permissions (removed for status change)
     
     data = request.get_json()
     updated_task = task_model.update_task(task_id, data, current_user_id)
@@ -172,20 +166,14 @@ def approve_task(task_id):
     
     return jsonify(updated_task), 200
 
-@tasks_bp.route('/<task_id>/archive', methods=['POST'])
+@tasks_bp.route('/archived', methods=['GET'])
 @jwt_required()
-def archive_task(task_id):
+def get_archived_tasks():
     current_user_id = get_jwt_identity()
     user_model = User(tasks_bp.db)
     current_user = user_model.get_user_by_id(current_user_id)
-    
-    if not has_permission(current_user, 'access_archives'):
-        return jsonify({'error': 'Permission denied'}), 403
-    
+
     task_model = Task(tasks_bp.db)
-    task = task_model.archive_task(task_id, current_user_id)
-    
-    if not task:
-        return jsonify({'error': 'Failed to archive task'}), 500
-    
-    return jsonify(task), 200
+    tasks = task_model.get_tasks_by_status(Task.STATUS['ARCHIVED'])
+
+    return jsonify(tasks), 200

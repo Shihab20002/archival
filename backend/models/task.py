@@ -62,7 +62,7 @@ class Task:
         update_data = {'updated_at': datetime.utcnow()}
         change_log = []
 
-        # Track changes for each field
+        # Track changes for each field, including status change
         trackable_fields = ['status', 'assigned_to', 'priority', 'description', 'due_date']
         for field in trackable_fields:
             if field in data and data[field] != current_task.get(field):
@@ -84,9 +84,9 @@ class Task:
         if 'attachments' in data:
             update_data['attachments'] = current_task.get('attachments', []) + data['attachments']
 
-        # Append new change log entries
+        # Set the change log entries directly
         if change_log:
-            update_data['$push'] = {'change_log': {'$each': change_log}}
+            update_data['change_log'] = current_task.get('change_log', []) + change_log
 
         result = self.collection.update_one(
             {'_id': ObjectId(task_id)},
