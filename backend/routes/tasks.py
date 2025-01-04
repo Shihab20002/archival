@@ -99,8 +99,9 @@ def get_department_tasks(department):
         return jsonify({'error': 'Permission denied'}), 403
     
     status = request.args.get('status')
+    exclude_archived = request.args.get('exclude_archived', 'true').lower() == 'true'
     task_model = Task(tasks_bp.db)
-    tasks = task_model.get_department_tasks(department, status, current_user)
+    tasks = task_model.get_department_tasks(department, status, current_user, exclude_archived)
     
     return jsonify(tasks), 200
 
@@ -112,12 +113,13 @@ def get_tasks_by_status(status):
     current_user = user_model.get_user_by_id(current_user_id)
     
     task_model = Task(tasks_bp.db)
+    exclude_archived = request.args.get('exclude_archived', 'true').lower() == 'true'
     
     # If user has permission to view all tasks, don't filter by department
     if has_permission(current_user, 'view_all_tasks'):
-        tasks = task_model.get_tasks_by_status(status)
+        tasks = task_model.get_tasks_by_status(status, exclude_archived=exclude_archived)
     else:
-        tasks = task_model.get_tasks_by_status(status, current_user['department'])
+        tasks = task_model.get_tasks_by_status(status, current_user['department'], exclude_archived)
     
     return jsonify(tasks), 200
 
@@ -165,6 +167,32 @@ def approve_task(task_id):
     )
     
     return jsonify(updated_task), 200
+
+@tasks_bp.route('/<task_id>/archive', methods=['POST'])
+@jwt_required()
+def archive_task(task_id):
+    current_user_id = get_jwt_identity()
+    user_model = User(tasks_bp.db)
+    current_user = user_model.get_user_by_id(current_user_id)
+    
+    if not has_permission(current_user, 'access_archives'):
+        return jsonify({'error': 'Permission denied'}), 403
+    
+    task_model = Task(tasks_bp.db)
+    task = task_model.get_task_by_id(task_id)
+    
+    if not task:
+        return jsonify({'error': 'Task not found'}), 404
+    
+    if task['status'] != Task.STATUS['DONE']:
+        return jsonify({'error': 'Only done tasks can be archived'}), 400
+    
+    archived_task = task_model.archive_task(task_id, current_user_id)
+    
+    if not archived_task:
+        return jsonify({'error': 'Failed to archive task'}), 500
+    
+    return jsonify(archived_task), 200
 
 @tasks_bp.route('/archived', methods=['GET'])
 @jwt_required()
