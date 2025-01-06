@@ -3,7 +3,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 // Configure axios defaults
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = 'https://e66e-103-112-54-172.ngrok-free.app';
 axios.defaults.withCredentials = true;
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
