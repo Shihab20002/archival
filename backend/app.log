@@ -844,3 +844,27 @@
 2024-12-31 11:39:59,134 - INFO - 127.0.0.1 - - [31/Dec/2024 11:39:59] "OPTIONS /api/tasks/department/CSE?exclude_archived=true HTTP/1.1" 200 -
 2024-12-31 11:39:59,142 - INFO - 127.0.0.1 - - [31/Dec/2024 11:39:59] "GET /api/tasks/department/CSE?exclude_archived=true HTTP/1.1" 200 -
 2024-12-31 11:39:59,146 - INFO - 127.0.0.1 - - [31/Dec/2024 11:39:59] "GET /api/tasks/department/CSE?exclude_archived=true HTTP/1.1" 200 -
+2025-01-07 02:42:56,928 - INFO -  * Detected change in 'C:\\Users\\rizwa\\Projects\\archival\\backend\\models\\report.py', reloading
+2025-01-07 02:42:57,352 - INFO -  * Restarting with stat
+2025-01-07 02:42:58,552 - WARNING -  * Debugger is active!
+2025-01-07 02:42:58,557 - INFO -  * Debugger PIN: 846-401-387
+2025-01-07 02:43:53,751 - INFO -  * Detected change in 'C:\\Users\\rizwa\\Projects\\archival\\backend\\__init__.py', reloading
+2025-01-07 02:43:54,163 - INFO -  * Restarting with stat
+2025-01-07 02:44:31,634 - INFO -  * Restarting with stat
+2025-01-07 02:44:43,020 - INFO -  * Restarting with stat
+2025-01-07 02:44:44,541 - WARNING -  * Debugger is active!
+2025-01-07 02:44:44,543 - INFO -  * Debugger PIN: 846-401-387
+2025-01-07 02:46:13,512 - INFO -  * Detected change in 'C:\\Users\\rizwa\\Projects\\archival\\backend\\config.py', reloading
+2025-01-07 02:46:14,073 - INFO -  * Restarting with stat
+2025-01-07 02:46:14,811 - WARNING -  * Debugger is active!
+2025-01-07 02:46:14,813 - INFO -  * Debugger PIN: 846-401-387
+2025-01-07 02:47:30,199 - INFO -  * Detected change in 'C:\\Users\\rizwa\\Projects\\archival\\backend\\models\\comment.py', reloading
+2025-01-07 02:47:30,433 - INFO -  * Restarting with stat
+2025-01-07 02:47:31,247 - WARNING -  * Debugger is active!
+2025-01-07 02:47:31,249 - INFO -  * Debugger PIN: 846-401-387
+2025-01-07 02:47:39,355 - INFO -  * Detected change in 'C:\\Users\\rizwa\\Projects\\archival\\backend\\config.py', reloading
+2025-01-07 02:47:39,932 - INFO -  * Restarting with stat
+2025-01-07 02:47:41,740 - WARNING -  * Debugger is active!
+2025-01-07 02:47:41,742 - INFO -  * Debugger PIN: 846-401-387
+2025-01-07 02:48:22,718 - INFO -  * Detected change in 'C:\\Users\\rizwa\\Projects\\archival\\backend\\__init__.py', reloading
+2025-01-07 02:48:23,275 - INFO -  * Restarting with stat
