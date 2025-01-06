@@ -7,6 +7,12 @@ export const fetchTasks = createAsyncThunk(
   async (filters = {}, { rejectWithValue }) => {
     try {
       let url = "/api/tasks";
+      let params = {};
+
+      // Exclude archived tasks by default unless specifically requested
+      if (!filters.status || filters.status !== "archived") {
+        params.exclude_archived = true;
+      }
 
       if (filters.department && filters.department !== "") {
         url = `/api/tasks/department/${filters.department}`;
@@ -14,7 +20,9 @@ export const fetchTasks = createAsyncThunk(
         url = `/api/tasks/status/${filters.status}`;
       }
 
-      const response = await axios.get(url || "/api/tasks"); // Fetch all tasks if no filters are applied
+      const response = await axios.get(url || "/api/tasks", {
+        params: params,
+      });
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -181,14 +189,20 @@ const tasksSlice = createSlice({
 
       // Archive task cases
       .addCase(archiveTask.fulfilled, (state, action) => {
-        const index = state.items.findIndex(
-          (item) => item._id === action.payload._id
+        // Update the task status to archived
+        const updatedTask = {
+          ...action.payload,
+          status: "archived",
+        };
+
+        // Remove the archived task from the active tasks list
+        state.items = state.items.filter(
+          (item) => item._id !== updatedTask._id
         );
-        if (index !== -1) {
-          state.items[index] = action.payload;
-        }
-        if (state.currentTask?._id === action.payload._id) {
-          state.currentTask = action.payload;
+
+        // Clear current task if it's the archived one
+        if (state.currentTask?._id === updatedTask._id) {
+          state.currentTask = null;
         }
       })
 
