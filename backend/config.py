@@ -11,7 +11,7 @@ class Config:
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)
     
     # MongoDB Configuration
-    MONGO_URI = os.getenv('MONGO_URI', 'mongodb://localhost:27017/archival_db')
+    MONGO_URI = os.getenv('MONGO_URI', 'mongodb+srv://archival:archival@cluster0.wblq6.mongodb.net/archival')
     
     # Google Calendar API Configuration
     GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
