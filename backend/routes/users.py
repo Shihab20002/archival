@@ -1,3 +1,28 @@
+import logging
+
+# Create a logger
+logger = logging.getLogger(__name__)
+
+# Set the logging level
+logger.setLevel(logging.INFO)
+
+# Create a file handler
+file_handler = logging.FileHandler('users.log')
+file_handler.setLevel(logging.INFO)
+
+# Create a console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Create a formatter and add it to the handlers
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# Add the handlers to the logger
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from models.user import User
@@ -18,7 +43,10 @@ def get_users():
     user_model = User(users_bp.db)
     current_user = user_model.get_user_by_id(current_user_id)
     
+    logger.info(f'User {current_user_id} is retrieving users')
+    
     if not has_permission(current_user, 'manage_users'):
+        logger.warning(f'User {current_user_id} does not have permission to manage users')
         return jsonify({'error': 'Permission denied'}), 403
     
     department = request.args.get('department')
