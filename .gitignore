@@ -52,3 +52,5 @@ build/
 *.swo
 *.swn
 .DS_Store
+backend/app.log
+backend/app.log
